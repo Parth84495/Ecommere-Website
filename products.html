@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Shop - Online Shopping Store</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-top">
+      <div class="logo">🛍️ E-SHOP</div>
+      <div class="search-bar-header">
+        <input type="text" id="headerSearchInput" placeholder="Search products, brands, offers...">
+        <button id="headerSearchButton">🔍</button>
+      </div>
+      <nav>
+        <a href="account.html">👤 Account</a>
+        <a href="checkout.html">🛒 Cart <span id="cartCount">0</span></a>
+        <a href="payment.html">💳 Offers</a>
+        <a href="#" id="logoutLink" style="display:none;">Logout</a>
+      </nav>
+    </div>
+    <div class="header-bottom">
+      <button class="category-toggle">☰ All Categories</button>
+      <div class="quick-categories">
+        <a href="#">Electronics</a>
+        <a href="#">Fashion</a>
+        <a href="#">Home & Kitchen</a>
+        <a href="#">Sports</a>
+        <a href="#">Books</a>
+        <a href="#">Toys</a>
+      </div>
+      <span class="delivery-info">🚚 Free Delivery on orders over ₹500</span>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="banner-slider">
+      <div class="banner-slide active">
+        <img src="banner.png" alt="Banner 1">
+        <div class="banner-content">
+          <h2>Mega Sale - Up to 70% OFF</h2>
+          <p>Limited Time Offer on Electronics</p>
+          <button class="banner-btn">Shop Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="search-bar">
+        <input id="searchInput" type="text" placeholder="Search electronics, clothes, shoes, furniture...">
+        <button id="searchButton" type="button">Search</button>
+        <div class="search-actions">
+          <button id="cameraButton" class="icon-button" type="button" title="Camera search">📷</button>
+          <button id="voiceButton" class="icon-button" type="button" title="Voice search">🎙️</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Strip -->
+  <section class="category-strip">
+    <div class="category-item">
+      <div class="category-icon">📱</div>
+      <div class="category-name">Mobiles</div>
+      <div class="category-deal">Up to 40% off</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">💻</div>
+      <div class="category-name">Laptops</div>
+      <div class="category-deal">Premium Brands</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">🎧</div>
+      <div class="category-name">Headphones</div>
+      <div class="category-deal">Upto 50% off</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">👕</div>
+      <div class="category-name">Fashion</div>
+      <div class="category-deal">New Arrivals</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">👟</div>
+      <div class="category-name">Shoes</div>
+      <div class="category-deal">Designer Brands</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">🏠</div>
+      <div class="category-name">Home</div>
+      <div class="category-deal">30% Discount</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">📚</div>
+      <div class="category-name">Books</div>
+      <div class="category-deal">Huge Savings</div>
+    </div>
+    <div class="category-item">
+      <div class="category-icon">⚽</div>
+      <div class="category-name">Sports</div>
+      <div class="category-deal">Season Sale</div>
+    </div>
+  </section>
+
+  <!-- Flash Deals Section -->
+  <section class="flash-deals">
+    <div class="section-header">
+      <h2>⚡ Flash Deals</h2>
+      <span class="timer">Ends in 03:45:22</span>
+    </div>
+    <div class="deals-scroll">
+      <div class="deal-card">
+        <div class="deal-badge">50% OFF</div>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80" alt="Product">
+        <h4>Premium Earbuds</h4>
+        <div class="price-tag">
+          <span class="original">₹3,999</span>
+          <span class="discounted">₹1,999</span>
+        </div>
+        <div class="rating">⭐ 4.5 (328 reviews)</div>
+        <button class="add-cart-btn" onclick="handleProductSelection({name: 'Premium Earbuds', brand: 'AudioPro', price: '₹1,999', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+      </div>
+      <div class="deal-card">
+        <div class="deal-badge">35% OFF</div>
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" alt="Product">
+        <h4>Smart Watch</h4>
+        <div class="price-tag">
+          <span class="original">₹4,999</span>
+          <span class="discounted">₹3,249</span>
+        </div>
+        <div class="rating">⭐ 4.3 (215 reviews)</div>
+        <button class="add-cart-btn" onclick="handleProductSelection({name: 'Smart Watch', brand: 'TechWear', price: '₹3,249', image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+      </div>
+      <div class="deal-card">
+        <div class="deal-badge">45% OFF</div>
+        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80" alt="Product">
+        <h4>Designer Sunglasses</h4>
+        <div class="price-tag">
+          <span class="original">₹2,499</span>
+          <span class="discounted">₹1,374</span>
+        </div>
+        <div class="rating">⭐ 4.6 (452 reviews)</div>
+        <button class="add-cart-btn" onclick="handleProductSelection({name: 'Designer Sunglasses', brand: 'StyleEye', price: '₹1,374', image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+      </div>
+      <div class="deal-card">
+        <div class="deal-badge">60% OFF</div>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80" alt="Product">
+        <h4>Wireless Charger</h4>
+        <div class="price-tag">
+          <span class="original">₹1,999</span>
+          <span class="discounted">₹799</span>
+        </div>
+        <div class="rating">⭐ 4.4 (187 reviews)</div>
+        <button class="add-cart-btn" onclick="handleProductSelection({name: 'Wireless Charger', brand: 'PowerUp', price: '₹799', image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers Section -->
+  <section class="best-sellers" id="products">
+    <h2>🏆 Best Sellers</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-badge">BESTSELLER</div>
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=300&q=80" alt="Smartwatch">
+        <div class="product-content">
+          <p class="brand">Techrix</p>
+          <h3>Premium Smart Watch Pro</h3>
+          <div class="rating-stars">⭐⭐⭐⭐⭐ (1,234)</div>
+          <div class="pricing">
+            <span class="price">₹129.99</span>
+            <span class="original-price">₹199.99</span>
+            <span class="discount">35% off</span>
+          </div>
+          <div class="fast-delivery">⚡ 1-Day Delivery</div>
+          <button class="add-to-cart" onclick="handleProductSelection({name: 'Premium Smart Watch Pro', brand: 'Techrix', price: '₹129.99', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge">LIMITED</div>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80" alt="Headphones">
+        <div class="product-content">
+          <p class="brand">AudioMax</p>
+          <h3>Wireless Headphones Max</h3>
+          <div class="rating-stars">⭐⭐⭐⭐ (856)</div>
+          <div class="pricing">
+            <span class="price">₹79.99</span>
+            <span class="original-price">₹129.99</span>
+            <span class="discount">38% off</span>
+          </div>
+          <div class="fast-delivery">⚡ 1-Day Delivery</div>
+          <button class="add-to-cart" onclick="handleProductSelection({name: 'Wireless Headphones Max', brand: 'AudioMax', price: '₹79.99', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge">HOT DEAL</div>
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=300&q=80" alt="Shoes">
+        <div class="product-content">
+          <p class="brand">SportZone</p>
+          <h3>Running Shoes Performance</h3>
+          <div class="rating-stars">⭐⭐⭐⭐⭐ (2,104)</div>
+          <div class="pricing">
+            <span class="price">₹59.99</span>
+            <span class="original-price">₹119.99</span>
+            <span class="discount">50% off</span>
+          </div>
+          <div class="fast-delivery">⚡ 2-Day Delivery</div>
+          <button class="add-to-cart" onclick="handleProductSelection({name: 'Running Shoes Performance', brand: 'SportZone', price: '₹59.99', image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge">TRENDING</div>
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80" alt="Cosmetics">
+        <div class="product-content">
+          <p class="brand">GlamZone</p>
+          <h3>Radiant Glow Lipstick Pro</h3>
+          <div class="rating-stars">⭐⭐⭐⭐ (673)</div>
+          <div class="pricing">
+            <span class="price">₹19.99</span>
+            <span class="original-price">₹39.99</span>
+            <span class="discount">50% off</span>
+          </div>
+          <div class="fast-delivery">⚡ 3-Day Delivery</div>
+          <button class="add-to-cart" onclick="handleProductSelection({name: 'Radiant Glow Lipstick Pro', brand: 'GlamZone', price: '₹19.99', image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80'})">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Shop With Us -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature-icon">🚚</div>
+      <h4>Free Shipping</h4>
+      <p>On orders over ₹500</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔄</div>
+      <h4>Easy Returns</h4>
+      <p>30-day return policy</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h4>Secure Payment</h4>
+      <p>100% secure transactions</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⭐</div>
+      <h4>Best Deals</h4>
+      <p>Verified seller reviews</p>
+    </div>
+  </section>
+
+  <section class="search-results" id="searchResults" hidden>
+    <h2>Search Results</h2>
+    <p class="result-message"></p>
+    <div class="products-grid" id="resultsGrid"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 E-SHOP. Your online shopping destination.</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: 'Galaxy Pro Laptop',
+        brand: 'Techrix',
+        category: 'laptop',
+        price: '₹89,999',
+        offer: '15% off',
+        specs: ['Intel i7', '16GB RAM', '512GB SSD', '15.6" FHD'],
+        image: 'laptop 1.png'
+      },
+      {
+        name: 'AeroBook X1',
+        brand: 'hp',
+        category: 'laptop',
+        price: '₹1,14,900',
+        offer: 'Free backpack',
+        specs: ['Intel i5', '8GB RAM', '256GB SSD', '14" Retina'],
+        image: 'laptop4.jpeg'
+      },
+      {
+        name: 'TurboBook 15',
+        brand: 'Volt',
+        category: 'laptop',
+        price: '₹87,900',
+        offer: '10% off',
+        specs: ['AMD Ryzen 7', '16GB RAM', '1TB SSD', '15.6"'],
+        image: 'laptop2.jpeg'
+      },
+      {
+        name: 'Pro Gamer Laptop',
+        brand: 'ASUS',
+        category: 'laptop',
+        price: '₹1,39,900',
+        offer: '20% off',
+        specs: ['RTX 4060', '16GB RAM', '1TB SSD', '17.3" QHD'],
+        image: 'laptop 1.png'
+      },
+      {
+        name: 'Everyday Ultrabook',
+        brand: 'LEVANO',
+        category: 'laptop',
+        price: '₹74,900',
+        offer: 'Free mouse',
+        specs: ['Intel i3', '8GB RAM', '256GB SSD', '13.3"'],
+        image: 'laptop 3.jpeg'
+      },
+      {
+        name: 'NanoBook Air',
+        brand: 'MACBOOK',
+        category: 'laptop',
+        price: '₹89,900',
+        offer: '10% off',
+        specs: ['Intel i5', '8GB RAM', '512GB SSD', '14"'],
+        image: 'laptop2.jpeg'
+      },
+      {
+        name: 'Workmate 14',
+        brand: 'VICTUS',
+        category: 'laptop',
+        price: '₹84,900',
+        offer: 'Free keyboard',
+        specs: ['Intel i5', '12GB RAM', '256GB SSD', '14"'],
+        image: 'laptop4.jpeg'
+      },
+      {
+        name: 'Creator Studio',
+        brand: 'hp',
+        category: 'laptop',
+        price: '₹1,24,900',
+        offer: '20% off',
+        specs: ['Intel i7', '16GB RAM', '1TB SSD', '16" 4K'],
+        image: 'laptop 1.png'
+      },
+      {
+        name: 'EcoBook 13',
+        brand: 'DELL',
+        category: 'laptop',
+        price: '₹67,900',
+        offer: 'Free case',
+        specs: ['AMD Ryzen 5', '8GB RAM', '256GB SSD', '13"'],
+        image: 'laptop2.jpeg'
+      },
+      {
+        name: 'Campus Lite',
+        brand: 'DELL',
+        category: 'laptop',
+        price: '₹55,900',
+        offer: 'Sale price',
+        specs: ['Intel Pentium', '4GB RAM', '128GB SSD', '15.6"'],
+        image: 'laptop2.jpeg'
+      },
+      {
+        name: 'Premium Pro 16',
+        brand: 'LEVANNO',
+        category: 'laptop',
+        price: '₹1,69,900',
+        offer: 'Free headphones',
+        specs: ['Intel i9', '32GB RAM', '1TB SSD', '16"'],
+        image: 'laptop 3.jpeg'
+      },
+      {
+        name: 'Hybrid Flex',
+        brand: 'macbook',
+        category: 'laptop',
+        price: '₹1,05,000',
+        offer: '15% off',
+        specs: ['Intel i7', '16GB RAM', '512GB SSD', '2-in-1 touchscreen'],
+        image: 'laptop4.jpeg'
+      },
+      {
+        name: 'Gaming Max',
+        brand: 'Pulse',
+        category: 'laptop',
+        price: '₹1,29,900',
+        offer: 'Free game bundle',
+        specs: ['RTX 3060', '16GB RAM', '512GB SSD', '15.6"'],
+        image: 'laptop 1.png'
+      },
+      {
+        name: 'ZenBook Ultra',
+        brand: 'Nimbus',
+        category: 'laptop',
+        price: '₹1,19,900',
+        offer: '10% off',
+        specs: ['Intel i7', '16GB RAM', '512GB SSD', '14" OLED'],
+        image: 'laptop2.jpeg'
+      },
+      {
+        name: 'StreamBook',
+        brand: 'MediaFlow',
+        category: 'laptop',
+        price: '₹96,900',
+        offer: 'Free webcam',
+        specs: ['Intel i5', '12GB RAM', '512GB SSD', '15.6"'],
+        image: 'laptop 3.jpeg'
+      },
+      {
+        name: 'TravelPro 12',
+        brand: 'Nomad',
+        category: 'laptop',
+        price: '₹82,900',
+        offer: 'Free travel sleeve',
+        specs: ['Intel i5', '8GB RAM', '256GB SSD', '12"'],
+        image: 'laptop4.jpeg'
+      },
+      {
+        name: 'Galaxy Nova 5G',
+        brand: 'StarTech',
+        category: 'mobile',
+        price: '₹27,999',
+        offer: '10% off',
+        specs: ['6.5" AMOLED', '8GB RAM', '128GB storage', '5G'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,mobile'
+      },
+      {
+        name: 'Pixel Spark',
+        brand: 'Lumeon',
+        category: 'mobile',
+        price: '₹18,499',
+        offer: 'Free earphones',
+        specs: ['6.4" display', '6GB RAM', '64GB storage', '48MP camera'],
+        image: 'https://source.unsplash.com/600x600/?mobile,phone'
+      },
+      {
+        name: 'Modern JavaScript',
+        brand: 'BookStack',
+        category: 'books',
+        price: '₹799',
+        offer: 'Free bookmark',
+        specs: ['Programming', 'Web Development', 'Beginner to Pro'],
+        image: 'https://source.unsplash.com/600x600/?book,programming'
+      },
+      {
+        name: 'Design Patterns Guide',
+        brand: 'ReadMore',
+        category: 'books',
+        price: '₹649',
+        offer: 'Buy 2 Get 1 50% off',
+        specs: ['Software design', 'Architecture', 'Examples'],
+        image: 'https://source.unsplash.com/600x600/?book,design'
+      },
+      {
+        name: 'GlowShield Serum',
+        brand: 'LumiSkin',
+        category: 'cosmetics',
+        price: '₹1,099',
+        offer: '15% off',
+        specs: ['Vitamin C', 'Hydrating', 'Radiant skin'],
+        image: 'https://source.unsplash.com/600x600/?cosmetics,serum'
+      },
+      {
+        name: 'Velvet Matte Lipstick',
+        brand: 'BeautyBloom',
+        category: 'cosmetics',
+        price: '₹499',
+        offer: 'Free mini gloss',
+        specs: ['Long-lasting', 'Matte finish', 'Rich color'],
+        image: 'https://source.unsplash.com/600x600/?lipstick,cosmetics'
+      },
+      {
+        name: 'StyleTrack Sneaker',
+        brand: 'puma',
+        category: 'shoes',
+        price: '₹4,899',
+        offer: 'Buy 1 Get 1 50% off',
+        specs: ['Mesh upper', 'Rubber sole', 'Lightweight'],
+        image: 'shoes1.jpeg'
+      },
+      {
+        name: 'Sprint Run Shoes',
+        brand: 'Adidas',
+        category: 'shoes',
+        price: '₹5,999',
+        offer: '10% off',
+        specs: ['Breathable knit', 'Cushioned sole', 'Grip tread'],
+        image: 'shoes2.jpeg'
+      },
+      {
+        name: 'Urban Street Sneakers',
+        brand: 'Nike',
+        category: 'shoes',
+        price: '₹3,999',
+        offer: 'Free socks',
+        specs: ['Canvas upper', 'Rubber sole', 'Casual style'],
+        image: 'shoes3.jpeg'
+      },
+      {
+        name: 'Trailblazer Boots',
+        brand: 'Timberland',
+        category: 'shoes',
+        price: '₹6,999',
+        offer: '15% off',
+        specs: ['Water-resistant', 'Ankle support', 'Padded collar'],
+        image: 'shoes4.jpeg'
+      },
+      {
+        name: 'Classic Leather Loafers',
+        brand: 'red tape',
+        category: 'shoes',
+        price: '₹5,499',
+        offer: 'Free polish kit',
+        specs: ['Genuine leather', 'Slip-on design', 'Comfort insole'],
+        image: 'shoes5.jpeg'
+      },
+      {
+        name: 'Gym Trainer Sneaker',
+        brand: 'PowerFit',
+        category: 'shoes',
+        price: '₹4,599',
+        offer: '20% off',
+        specs: ['Mesh upper', 'Shock absorbent', 'Lightweight'],
+        image: 'shoes1.jpeg'
+      },
+      {
+        name: 'Cozy Winter Boots',
+        brand: 'SOLEMATE',
+        category: 'shoes',
+        price: '₹7,999',
+        offer: 'Free beanie',
+        specs: ['Fur lining', 'Insulated', 'Slip-resistant'],
+        image: 'shoes2.jpeg'
+      },
+      {
+        name: 'Beach Slides',
+        brand: 'Sunset',
+        category: 'shoes',
+        price: '₹1,299',
+        offer: 'Buy 2 Save 15%',
+        specs: ['Quick dry', 'Lightweight', 'Comfort footbed'],
+        image: 'shoes3.jpeg'
+      },
+      {
+        name: 'Performance Running Shoes',
+        brand: '  RunFast',
+        category: 'shoes',
+        price: '₹6,499',
+        offer: 'Free laces',
+        specs: ['Responsive foam', 'Breathable mesh', 'Lightweight'],
+        image: 'shoes4.jpeg'
+      },
+      {
+        name: 'Leather Ankle Boots',
+        brand: 'LeatherLux',
+        category: 'shoes',
+        price: '₹7,999',
+        offer: '10% off',
+        specs: ['Soft leather', 'Cushioned heel', 'Classic style'],
+        image: 'shoes5.jpeg'
+      },
+      {
+        name: 'Casual Canvas Shoes',
+        brand: 'EasyStep',
+        category: 'shoes',
+        price: '₹2,499',
+        offer: '15% off',
+        specs: ['Canvas upper', 'Padded tongue', 'Flexible sole'],
+        image: 'shoes1.jpeg'
+      },
+      {
+        name: 'City Runner',
+        brand: 'UrbanMove',
+        category: 'shoes',
+        price: '₹5,999',
+        offer: 'Free water bottle',
+        specs: ['Mesh upper', 'Foam midsole', 'Reflective details'],
+        image: 'shoes2.jpeg'
+      },
+      {
+        name: 'Breathable Tennis Shoes',
+        brand: 'CourtPro',
+        category: 'shoes',
+        price: '₹4,499',
+        offer: '20% off',
+        specs: ['Breathable mesh', 'Durable sole', 'Lightweight fit'],
+        image: 'shoes3.jpeg'
+      },
+      {
+        name: 'Sunset Sandals',
+        brand: 'Terra',
+        category: 'shoes',
+        price: '₹1,999',
+        offer: 'Free shipping',
+        specs: ['Soft straps', 'Comfort footbed', 'Water-friendly'],
+        image: 'shoes4.jpeg'
+      },
+      {
+        name: 'Flex Runner',
+        brand: 'StrideMax',
+        category: 'shoes',
+        price: '₹4,299',
+        offer: '10% off',
+        specs: ['Lightweight mesh', 'Cushioned sole', 'Stability support'],
+        image: 'shoes5.jpeg'
+      },
+      {
+        name: 'Classic Shirt',
+        brand: 'Moda',
+        category: 'clothes',
+        price: '₹1,899',
+        offer: '25% off',
+        specs: ['100% Cotton', 'Slim fit', 'Available in 5 colors'],
+        image: 'cl1.jpeg'
+      },
+      {
+        name: 'Summer Dress',
+        brand: 'FloralBloom',
+        category: 'clothes',
+        price: '₹2,999',
+        offer: 'Buy 1 Get 1 20% off',
+        specs: ['Lightweight linen', 'Floral print', 'Relaxed fit'],
+        image: 'cl2.jpeg'
+      },
+      {
+        name: 'Denim Jacket',
+        brand: '  BlueDenim',
+        category: 'clothes',
+        price: '₹3,999',
+        offer: 'Free cap',
+        specs: ['Classic denim', 'Button front', 'Adjustable waist'],
+        image: 'cl3.jpeg'
+      },
+      {
+        name: 'Athletic Joggers',
+        brand: 'ActiveFit',
+        category: 'clothes',
+        price: '₹1,599',
+        offer: 'Free shipping',
+        specs: ['Breathable fabric', 'Elastic waist', 'Slim fit'],
+        image: 'cl4.jpeg'
+      },
+      {
+        name: 'Formal Suit',
+        brand: 'EliteWear',
+        category: 'clothes',
+        price: '₹12,999',
+        offer: '10% off',
+        specs: ['Tailored fit', 'Premium wool', 'Two-piece set'],
+        image: 'cl5.jpeg'
+      },
+      {
+        name: 'Casual Hoodie',
+        brand: 'Cozy',
+        category: 'clothes',
+        price: '₹2,199',
+        offer: '15% off',
+        specs: ['Fleece lined', 'Front pocket', 'Drawstring hood'],
+        image: 'cl6.jpeg'
+      },
+      {
+        name: 'Leather Belt',
+        brand: 'Buckler',
+        category: 'clothes',
+        price: '₹899',
+        offer: 'Free gift wrap',
+        specs: ['Genuine leather', 'Adjustable', 'Classic buckle'],
+        image: 'cl1.jpeg'
+      },
+      {
+        name: 'Summer Shorts',
+        brand: 'red tape',
+        category: 'clothes',
+        price: '₹1,299',
+        offer: '20% off',
+        specs: ['Quick dry', 'Elastic waist', 'Side pockets'],
+        image: 'cl2.jpeg'
+      },
+      {
+        name: 'Silk Scarf',
+        brand: 'trends',
+        category: 'clothes',
+        price: '₹1,599',
+        offer: 'Free shipping',
+        specs: ['Soft silk', 'Vibrant print', 'One size'],
+        image: 'cl3.jpeg'
+      },
+      {
+        name: 'Classic Polo',
+        brand: 'octane',
+        category: 'clothes',
+        price: '₹1,499',
+        offer: 'Buy 2 Save 10%',
+        specs: ['Cotton blend', 'Button collar', 'Modern fit'],
+        image: 'cl4.jpeg'
+      },
+      {
+        name: 'Denim Jeans',
+        brand: 'TrueBlue',
+        category: 'clothes',
+        price: '₹2,499',
+        offer: '15% off',
+        specs: ['Stretch denim', 'Slim fit', 'Classic wash'],
+        image: 'cl5.jpeg'
+      },
+      {
+        name: 'Lace Evening Dress',
+        brand: 'Glamour',
+        category: 'clothes',
+        price: '₹6,999',
+        offer: 'Free clutch',
+        specs: ['Lace detail', 'Fitted waist', 'Elegant silhouette'],
+        image: 'cl6.jpeg'
+      },
+      {
+        name: 'Comfy Pajama Set',
+        brand: 'DreamSoft',
+        category: 'clothes',
+        price: '₹1,499',
+        offer: 'Free shipping',
+        specs: ['Cotton blend', 'Elastic waist', 'Relaxed fit'],
+        image: 'cl1.jpeg'
+      },
+      {
+        name: 'Designer Blazer',
+        brand: 'TailorMade',
+        category: 'clothes',
+        price: '₹8,999',
+        offer: '10% off',
+        specs: ['Structured fit', 'Premium fabric', 'Lined interior'],
+        image: 'cl5.jpeg'
+      },
+      {
+        name: 'Cotton Tee',
+        brand: 'Basicware',
+        category: 'clothes',
+        price: '₹699',
+        offer: 'Buy 2 Save 10%',
+        specs: ['100% cotton', 'Regular fit', 'Soft feel'],
+        image: 'cl2.jpeg'
+      },
+      {
+        name: 'Linen Blouse',
+        brand: 'SummerLuxe',
+        category: 'clothes',
+        price: '₹1,999',
+        offer: 'Free shipping',
+        specs: ['Lightweight linen', 'Breathable', 'Button front'],
+        image: 'cl3.jpeg'
+      },
+      {
+        name: 'Modern Sofa Set',
+        brand: 'HomeEase',
+        category: 'furniture',
+        price: '₹69,900',
+        offer: 'Free delivery',
+        specs: ['3-seater', 'Leather', 'Easy clean'],
+        image: 'fur1.jpeg'
+      },
+      {
+        name: 'Oak Dining Table',
+        brand: 'Woodcraft',
+        category: 'furniture',
+        price: '₹54,900',
+        offer: '10% off',
+        specs: ['Solid oak', '6 chairs included', 'Durable finish'],
+        image: 'fur2.jpeg'
+      },
+      {
+        name: 'Cozy Armchair',
+        brand: 'Nest',
+        category: 'furniture',
+        price: '₹24,900',
+        offer: 'Free cushion',
+        specs: ['Soft fabric', 'Padded seat', 'Wood legs'],
+        image: 'fur3.jpeg'
+      },
+      {
+        name: 'Minimal Desk',
+        brand: 'WorkSpace',
+        category: 'furniture',
+        price: '₹29,900',
+        offer: 'Free shipping',
+        specs: ['Modern design', 'Spacious surface', 'Cable management'],
+        image: 'fur4.jpeg'
+      },
+      {
+        name: 'Bedroom Wardrobe',
+        brand: 'ClosetPro',
+        category: 'furniture',
+        price: '₹79,900',
+        offer: '15% off',
+        specs: ['Sliding doors', '6 shelves', 'Mirror panel'],
+        image: 'fur5.jpeg'
+      },
+      {
+        name: 'Coffee Table',
+        brand: 'LivingArt',
+        category: 'furniture',
+        price: '₹12,900',
+        offer: 'Free coaster set',
+        specs: ['Glass top', 'Steel frame', 'Minimal style'],
+        image: 'fur6.jpeg'
+      },
+      {
+        name: 'Storage Shelf',
+        brand: 'StackIt',
+        category: 'furniture',
+        price: '₹18,900',
+        offer: 'Free assembly',
+        specs: ['5-tier', 'Metal frame', 'Industrial style'],
+        image: 'fur7.jpeg'
+      },
+      {
+        name: 'Rolling Office Chair',
+        brand: 'ErgoFit',
+        category: 'furniture',
+        price: '₹22,900',
+        offer: '10% off',
+        specs: ['Lumbar support', 'Height adjustable', 'Mesh back'],
+        image: 'fur3.jpeg'
+      },
+      {
+        name: 'Outdoor Patio Set',
+        brand: 'Gardenia',
+        category: 'furniture',
+        price: '₹55,900',
+        offer: 'Free cushions',
+        specs: ['Weatherproof', '4 seats', 'Glass table'],
+        image: 'fur5.jpeg'
+      },
+      {
+        name: 'Bookshelf Unit',
+        brand: 'PageTurner',
+        category: 'furniture',
+        price: '₹15,900',
+        offer: 'Free delivery',
+        specs: ['6 shelves', 'Solid wood', 'Easy assembly'],
+        image: 'fur8.jpeg'
+      },
+      {
+        name: 'Nightstand',
+        brand: 'DreamSpace',
+        category: 'furniture',
+        price: '₹7,900',
+        offer: 'Free lamp',
+        specs: ['2 drawers', 'Oak finish', 'Compact size'],
+        image: 'fur3.jpeg'
+      },
+      {
+        name: 'TV Console',
+        brand: 'Vision',
+        category: 'furniture',
+        price: '₹27,900',
+        offer: '10% off',
+        specs: ['2 drawers', 'Cable management', 'Walnut finish'],
+        image: 'fur8.jpeg'
+      }
+    ]
+const products2 = [
+      {
+        name: 'Campus Lite',
+        brand: 'StudySmart',
+        category: 'laptop',
+        price: '₹559',
+        offer: 'Sale price',
+        specs: ['Intel Pentium', '4GB RAM', '128GB SSD', '15.6"'],
+        image: 'https://source.unsplash.com/600x600/?laptop,student'
+      },
+      {
+        name: 'Premium Pro 16',
+        brand: 'Zenith',
+        category: 'laptop',
+        price: '₹1,699',
+        offer: 'Free headphones',
+        specs: ['Intel i9', '32GB RAM', '1TB SSD', '16"'],
+        image: 'https://source.unsplash.com/600x600/?laptop,premium'
+      },
+      {
+        name: 'Hybrid Flex',
+        brand: 'FlexiNote',
+        category: 'laptop',
+        price: '₹1,050',
+        offer: '15% off',
+        specs: ['Intel i7', '16GB RAM', '512GB SSD', '2-in-1 touchscreen'],
+        image: 'https://source.unsplash.com/600x600/?laptop,2-in-1'
+      },
+      {
+        name: 'Gaming Max',
+        brand: 'Pulse',
+        category: 'laptop',
+        price: '₹1,299',
+        offer: 'Free game bundle',
+        specs: ['RTX 3060', '16GB RAM', '512GB SSD', '15.6"'],
+        image: 'https://source.unsplash.com/600x600/?gaming,laptop'
+      },
+      {
+        name: 'ZenBook Ultra',
+        brand: 'Nimbus',
+        category: 'laptop',
+        price: '₹1,199',
+        offer: '10% off',
+        specs: ['Intel i7', '16GB RAM', '512GB SSD', '14" OLED'],
+        image: 'https://source.unsplash.com/600x600/?laptop,oled'
+      },
+      {
+        name: 'StreamBook',
+        brand: 'MediaFlow',
+        category: 'laptop',
+        price: '₹969',
+        offer: 'Free webcam',
+        specs: ['Intel i5', '12GB RAM', '512GB SSD', '15.6"'],
+        image: 'https://source.unsplash.com/600x600/?laptop,streaming'
+      },
+      {
+        name: 'TravelPro 12',
+        brand: 'Nomad',
+        category: 'laptop',
+        price: '?829',
+        offer: 'Free travel sleeve',
+        specs: ['Intel i5', '8GB RAM', '256GB SSD', '12"'],
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'StyleTrack Sneaker',
+        brand: 'Stride',
+        category: 'shoes',
+        price: '?89',
+        offer: 'Buy 1 Get 1 50% off',
+        specs: ['Mesh upper', 'Rubber sole', 'Lightweight'],
+        image: 'https://images.unsplash.com/photo-1528701800489-20d3b0c15db8?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Sprint Run Shoes',
+        brand: 'Dash',
+        category: 'shoes',
+        price: '?119',
+        offer: '10% off',
+        specs: ['Breathable knit', 'Cushioned sole', 'Grip tread'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Urban Street Sneakers',
+        brand: 'Metro',
+        category: 'shoes',
+        price: '?99',
+        offer: 'Free socks',
+        specs: ['Canvas upper', 'Rubber sole', 'Casual style'],
+        image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Trailblazer Boots',
+        brand: 'Summit',
+        category: 'shoes',
+        price: '?139',
+        offer: '15% off',
+        specs: ['Water-resistant', 'Ankle support', 'Padded collar'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Classic Leather Loafers',
+        brand: 'Estate',
+        category: 'shoes',
+        price: '?129',
+        offer: 'Free polish kit',
+        specs: ['Genuine leather', 'Slip-on design', 'Comfort insole'],
+        image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Gym Trainer Sneaker',
+        brand: 'PowerFit',
+        category: 'shoes',
+        price: '?109',
+        offer: '20% off',
+        specs: ['Mesh upper', 'Shock absorbent', 'Lightweight'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Cozy Winter Boots',
+        brand: 'Arctic',
+        category: 'shoes',
+        price: '?149',
+        offer: 'Free beanie',
+        specs: ['Fur lining', 'Insulated', 'Slip-resistant'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Beach Slides',
+        brand: 'Wave',
+        category: 'shoes',
+        price: '?29',
+        offer: 'Buy 2 Save 15%',
+        specs: ['Quick dry', 'Lightweight', 'Comfort footbed'],
+        image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Performance Running Shoes',
+        brand: 'Velocity',
+        category: 'shoes',
+        price: '?129',
+        offer: 'Free laces',
+        specs: ['Responsive foam', 'Breathable mesh', 'Lightweight'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Leather Ankle Boots',
+        brand: 'LeatherLux',
+        category: 'shoes',
+        price: '?159',
+        offer: '10% off',
+        specs: ['Soft leather', 'Cushioned heel', 'Classic style'],
+        image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Casual Canvas Shoes',
+        brand: 'EasyStep',
+        category: 'shoes',
+        price: '?69',
+        offer: '15% off',
+        specs: ['Canvas upper', 'Padded tongue', 'Flexible sole'],
+        image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'City Runner',
+        brand: 'UrbanMove',
+        category: 'shoes',
+        price: '?119',
+        offer: 'Free water bottle',
+        specs: ['Mesh upper', 'Foam midsole', 'Reflective details'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Breathable Tennis Shoes',
+        brand: 'CourtPro',
+        category: 'shoes',
+        price: '?99',
+        offer: '20% off',
+        specs: ['Breathable mesh', 'Durable sole', 'Lightweight fit'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Sunset Sandals',
+        brand: 'Terra',
+        category: 'shoes',
+        price: '?49',
+        offer: 'Free shipping',
+        specs: ['Soft straps', 'Comfort footbed', 'Water-friendly'],
+        image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Flex Runner',
+        brand: 'StrideMax',
+        category: 'shoes',
+        price: '?95',
+        offer: '10% off',
+        specs: ['Lightweight mesh', 'Cushioned sole', 'Stability support'],
+        image: 'https://images.unsplash.com/photo-1519741499505-8301ff7d8897?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Classic Shirt',
+        brand: 'Moda',
+        category: 'clothes',
+        price: '?34',
+        offer: '25% off',
+        specs: ['100% Cotton', 'Slim fit', 'Available in 5 colors'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Summer Dress',
+        brand: 'Blossom',
+        category: 'clothes',
+        price: '?59',
+        offer: 'Buy 1 Get 1 20% off',
+        specs: ['Lightweight linen', 'Floral print', 'Relaxed fit'],
+        image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Denim Jacket',
+        brand: 'RawEdge',
+        category: 'clothes',
+        price: '?79',
+        offer: 'Free cap',
+        specs: ['Classic denim', 'Button front', 'Adjustable waist'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Athletic Joggers',
+        brand: 'Motion',
+        category: 'clothes',
+        price: '?39',
+        offer: 'Free shipping',
+        specs: ['Breathable fabric', 'Elastic waist', 'Slim fit'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Formal Suit',
+        brand: 'EliteWear',
+        category: 'clothes',
+        price: '?249',
+        offer: '10% off',
+        specs: ['Tailored fit', 'Premium wool', 'Two-piece set'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Casual Hoodie',
+        brand: 'Cozy',
+        category: 'clothes',
+        price: '?45',
+        offer: '15% off',
+        specs: ['Fleece lined', 'Front pocket', 'Drawstring hood'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Leather Belt',
+        brand: 'Buckle',
+        category: 'clothes',
+        price: '?24',
+        offer: 'Free gift wrap',
+        specs: ['Genuine leather', 'Adjustable', 'Classic buckle'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Summer Shorts',
+        brand: 'Breeze',
+        category: 'clothes',
+        price: '?29',
+        offer: '20% off',
+        specs: ['Quick dry', 'Elastic waist', 'Side pockets'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Silk Scarf',
+        brand: 'Elegance',
+        category: 'clothes',
+        price: '?35',
+        offer: 'Free shipping',
+        specs: ['Soft silk', 'Vibrant print', 'One size'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Classic Polo',
+        brand: 'Heritage',
+        category: 'clothes',
+        price: '?32',
+        offer: 'Buy 2 Save 10%',
+        specs: ['Cotton blend', 'Button collar', 'Modern fit'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Denim Jeans',
+        brand: 'TrueBlue',
+        category: 'clothes',
+        price: '?49',
+        offer: '15% off',
+        specs: ['Stretch denim', 'Slim fit', 'Classic wash'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Lace Evening Dress',
+        brand: 'Glamour',
+        category: 'clothes',
+        price: '?129',
+        offer: 'Free clutch',
+        specs: ['Lace detail', 'Fitted waist', 'Elegant silhouette'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Comfy Pajama Set',
+        brand: 'DreamSoft',
+        category: 'clothes',
+        price: '?39',
+        offer: 'Free shipping',
+        specs: ['Cotton blend', 'Elastic waist', 'Relaxed fit'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Designer Blazer',
+        brand: 'TailorMade',
+        category: 'clothes',
+        price: '?179',
+        offer: '10% off',
+        specs: ['Structured fit', 'Premium fabric', 'Lined interior'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Cotton Tee',
+        brand: 'Basicware',
+        category: 'clothes',
+        price: '?22',
+        offer: 'Buy 2 Save 10%',
+        specs: ['100% cotton', 'Regular fit', 'Soft feel'],
+        image: 'https://images.unsplash.com/photo-1520975697905-31d0f5fa8f94?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Linen Blouse',
+        brand: 'SummerLuxe',
+        category: 'clothes',
+        price: '?44',
+        offer: 'Free shipping',
+        specs: ['Lightweight linen', 'Breathable', 'Button front'],
+        image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Modern Sofa Set',
+        brand: 'HomeEase',
+        category: 'furniture',
+        price: '?699',
+        offer: 'Free delivery',
+        specs: ['3-seater', 'Leather', 'Easy clean'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Oak Dining Table',
+        brand: 'Woodcraft',
+        category: 'furniture',
+        price: '?549',
+        offer: '10% off',
+        specs: ['Solid oak', '6 chairs included', 'Durable finish'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Cozy Armchair',
+        brand: 'Nest',
+        category: 'furniture',
+        price: '?249',
+        offer: 'Free cushion',
+        specs: ['Soft fabric', 'Padded seat', 'Wood legs'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Minimal Desk',
+        brand: 'WorkSpace',
+        category: 'furniture',
+        price: '?299',
+        offer: 'Free shipping',
+        specs: ['Modern design', 'Spacious surface', 'Cable management'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Bedroom Wardrobe',
+        brand: 'ClosetPro',
+        category: 'furniture',
+        price: '?799',
+        offer: '15% off',
+        specs: ['Sliding doors', '6 shelves', 'Mirror panel'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Coffee Table',
+        brand: 'LivingArt',
+        category: 'furniture',
+        price: '?129',
+        offer: 'Free coaster set',
+        specs: ['Glass top', 'Steel frame', 'Minimal style'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Storage Shelf',
+        brand: 'StackIt',
+        category: 'furniture',
+        price: '?189',
+        offer: 'Free assembly',
+        specs: ['5-tier', 'Metal frame', 'Industrial style'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Rolling Office Chair',
+        brand: 'ErgoFit',
+        category: 'furniture',
+        price: '?229',
+        offer: '10% off',
+        specs: ['Lumbar support', 'Height adjustable', 'Mesh back'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Outdoor Patio Set',
+        brand: 'Gardenia',
+        category: 'furniture',
+        price: '?559',
+        offer: 'Free cushions',
+        specs: ['Weatherproof', '4 seats', 'Glass table'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Bookshelf Unit',
+        brand: 'PageTurner',
+        category: 'furniture',
+        price: '?159',
+        offer: 'Free delivery',
+        specs: ['6 shelves', 'Solid wood', 'Easy assembly'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Nightstand',
+        brand: 'DreamSpace',
+        category: 'furniture',
+        price: '?79',
+        offer: 'Free lamp',
+        specs: ['2 drawers', 'Oak finish', 'Compact size'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'TV Console',
+        brand: 'Vision',
+        category: 'furniture',
+        price: '?279',
+        offer: '10% off',
+        specs: ['2 drawers', 'Cable management', 'Walnut finish'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Accent Cabinet',
+        brand: 'Aura',
+        category: 'furniture',
+        price: '?219',
+        offer: 'Free assembly',
+        specs: ['Soft-close doors', 'Mirrored finish', 'Shelf storage'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Bedroom Bench',
+        brand: 'ComfortLine',
+        category: 'furniture',
+        price: '?149',
+        offer: 'Free cushion',
+        specs: ['Upholstered seat', 'Oak legs', 'Storage compartment'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Wall Mirror',
+        brand: 'Reflecta',
+        category: 'furniture',
+        price: '?89',
+        offer: 'Free hanging kit',
+        specs: ['Frameless', 'Large size', 'Modern design'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Entryway Console',
+        brand: 'FirstLook',
+        category: 'furniture',
+        price: '?199',
+        offer: '10% off',
+        specs: ['Slim design', 'Two drawers', 'Modern wood'],
+        image: 'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Dining Bench',
+        brand: 'Gather',
+        category: 'furniture',
+        price: '?139',
+        offer: 'Free delivery',
+        specs: ['Solid wood', 'Seating for 3', 'Sturdy frame'],
+        image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Kitchen Utensil Kit',
+        brand: 'ChefPro',
+        category: 'utensils',
+        price: '₹29',
+        offer: 'Free shipping',
+        specs: ['12 pieces', 'Stainless steel', 'Dishwasher safe'],
+        image: 'https://images.unsplash.com/photo-1511688878350-0e5a08f403aa?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        name: 'Orion X1',
+        brand: 'Nebula',
+        category: 'mobile',
+        price: '₹21,999',
+        offer: '10% off',
+        specs: ['6.7" AMOLED', '8GB RAM', '128GB storage', '5000mAh battery'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,black'
+      },
+      {
+        name: 'Pulse Nova',
+        brand: 'EchoMobile',
+        category: 'mobile',
+        price: '₹19,499',
+        offer: 'Free case',
+        specs: ['6.5" display', '6GB RAM', '64GB storage', 'Quad camera'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,blue'
+      },
+      {
+        name: 'Zen Prime',
+        brand: 'Zenith',
+        category: 'mobile',
+        price: '₹24,999',
+        offer: '15% off',
+        specs: ['6.8" AMOLED', '12GB RAM', '256GB storage', '108MP camera'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,flagship'
+      },
+      {
+        name: 'Astra Lite',
+        brand: 'AstraTech',
+        category: 'mobile',
+        price: '₹14,999',
+        offer: 'Free headphones',
+        specs: ['6.4" display', '4GB RAM', '64GB storage', 'Fast charge'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,slim'
+      },
+      {
+        name: 'Nova 5G',
+        brand: 'Orbit',
+        category: 'mobile',
+        price: '₹29,999',
+        offer: '20% off',
+        specs: ['5G ready', '8GB RAM', '128GB storage', '48MP camera'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,5g'
+      },
+      {
+        name: 'Pulse Mini',
+        brand: 'EchoMobile',
+        category: 'mobile',
+        price: '₹12,499',
+        offer: 'Free cover',
+        specs: ['5.8" display', '3GB RAM', '32GB storage', '2500mAh battery'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,compact'
+      },
+      {
+        name: 'Sky Ultra',
+        brand: 'Skyline',
+        category: 'mobile',
+        price: '₹32,999',
+        offer: 'Free earbuds',
+        specs: ['6.9" display', '12GB RAM', '256GB storage', '4800mAh battery'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,large'
+      },
+      {
+        name: 'Luma C12',
+        brand: 'Luma',
+        category: 'mobile',
+        price: '₹16,299',
+        offer: '10% off',
+        specs: ['6.3" display', '6GB RAM', '128GB storage', '48MP camera'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,stylish'
+      },
+      {
+        name: 'Orbit Edge',
+        brand: 'Orbit',
+        category: 'mobile',
+        price: '₹22,499',
+        offer: 'Free screen guard',
+        specs: ['6.6" display', '8GB RAM', '128GB storage', 'Triple camera'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,edge'
+      },
+      {
+        name: 'EcoPhone S',
+        brand: 'GreenTech',
+        category: 'mobile',
+        price: '₹18,999',
+        offer: 'Free charger',
+        specs: ['6.5" display', '8GB RAM', '64GB storage', 'Eco mode'],
+        image: 'https://source.unsplash.com/600x600/?smartphone,green'
+      },
+      {
+        name: 'AirPods Pro',
+        brand: 'SoundWave',
+        category: 'earbuds',
+        price: '₹8,999',
+        offer: 'Free case',
+        specs: ['Noise cancellation', 'Touch controls', '24h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,airpods'
+      },
+      {
+        name: 'BassBeats',
+        brand: 'PulseAudio',
+        category: 'earbuds',
+        price: '₹4,499',
+        offer: '20% off',
+        specs: ['Bass boost', 'Wireless', '12h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,studio'
+      },
+      {
+        name: 'Breeze Pods',
+        brand: 'AeroSound',
+        category: 'earbuds',
+        price: '₹3,999',
+        offer: 'Free earbuds case',
+        specs: ['Lightweight', 'Bluetooth 5.2', '18h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,wireless'
+      },
+      {
+        name: 'Sport Pro',
+        brand: 'ActiveTune',
+        category: 'earbuds',
+        price: '₹5,299',
+        offer: 'Free strap',
+        specs: ['Sweat proof', 'Ear hook', '16h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,sport'
+      },
+      {
+        name: 'StudioTone',
+        brand: 'SoundLab',
+        category: 'earbuds',
+        price: '₹6,499',
+        offer: '10% off',
+        specs: ['Hi-res audio', 'ANC', 'Wireless charging'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,professional'
+      },
+      {
+        name: 'Urban Buds',
+        brand: 'CitySound',
+        category: 'earbuds',
+        price: '₹4,899',
+        offer: 'Free case',
+        specs: ['Comfort fit', 'Bluetooth 5.1', '14h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,urban'
+      },
+      {
+        name: 'ClearVoice',
+        brand: 'ChatTone',
+        category: 'earbuds',
+        price: '₹5,999',
+        offer: '20% off',
+        specs: ['Crystal calls', 'Noise reduction', '24h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,voice'
+      },
+      {
+        name: 'BassFlow',
+        brand: 'DeepSound',
+        category: 'earbuds',
+        price: '₹4,299',
+        offer: 'Free shipping',
+        specs: ['Bass boost', 'Comfort fit', '12h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,bass'
+      },
+      {
+        name: 'EcoPods',
+        brand: 'GreenAudio',
+        category: 'earbuds',
+        price: '₹3,799',
+        offer: 'Free case',
+        specs: ['Sustainable build', '12h battery', 'Touch control'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,eco'
+      },
+      {
+        name: 'Rhythm Twins',
+        brand: 'BeatWave',
+        category: 'earbuds',
+        price: '₹4,699',
+        offer: 'Free charging case',
+        specs: ['Stereo sound', 'Bluetooth 5.2', '20h battery'],
+        image: 'https://source.unsplash.com/600x600/?earbuds,stereo'
+      },
+      {
+        name: 'CinemaMax 55',
+        brand: 'HomeView',
+        category: 'television',
+        price: '₹49,999',
+        offer: '10% off',
+        specs: ['55" 4K', 'Smart TV', 'HDR'],
+        image: 'https://source.unsplash.com/600x600/?television,4k'
+      },
+      {
+        name: 'Vision Ultra 65',
+        brand: 'ClearScreen',
+        category: 'television',
+        price: '₹79,999',
+        offer: 'Free wall mount',
+        specs: ['65" OLED', 'Smart apps', 'Dolby Vision'],
+        image: 'https://source.unsplash.com/600x600/?television,qled'
+      },
+      {
+        name: 'Pixel Stream 50',
+        brand: 'PixelWave',
+        category: 'television',
+        price: '₹39,999',
+        offer: 'Free soundbar',
+        specs: ['50" QLED', '4K', 'Smart TV'],
+        image: 'https://source.unsplash.com/600x600/?tv,smart'
+      },
+      {
+        name: 'EcoView 43',
+        brand: 'GreenTech',
+        category: 'television',
+        price: '₹29,999',
+        offer: 'Free shipping',
+        specs: ['43" LED', 'Full HD', 'Streaming apps'],
+        image: 'https://source.unsplash.com/600x600/?tv,eco'
+      },
+      {
+        name: 'Theater X 75',
+        brand: 'CinemaPro',
+        category: 'television',
+        price: '₹1,29,999',
+        offer: 'Free installation',
+        specs: ['75" QLED', '4K', 'HDR10+'],
+        image: 'https://source.unsplash.com/600x600/?tv,homecinema'
+      },
+      {
+        name: 'SmartStream 55',
+        brand: 'Streamline',
+        category: 'television',
+        price: '₹45,999',
+        offer: '10% off',
+        specs: ['55" 4K', 'Voice remote', 'Smart hub'],
+        image: 'https://source.unsplash.com/600x600/?tv,streaming'
+      },
+      {
+        name: 'Nexus 65',
+        brand: 'Nexa',
+        category: 'television',
+        price: '₹69,999',
+        offer: 'Free HDMI cable',
+        specs: ['65" QLED', 'Smart OS', 'AI picture'],
+        image: 'https://source.unsplash.com/600x600/?television,nexa'
+      },
+      {
+        name: 'UltraView 49',
+        brand: 'VisionMax',
+        category: 'television',
+        price: '₹42,999',
+        offer: 'Free shipping',
+        specs: ['49" 4K', 'HDR', 'Smart apps'],
+        image: 'https://source.unsplash.com/600x600/?tv,home'
+      },
+      {
+        name: 'FamilyView 55',
+        brand: 'FamilyTech',
+        category: 'television',
+        price: '₹47,999',
+        offer: 'Free soundbar',
+        specs: ['55" LED', 'Smart TV', 'Multi-cast'],
+        image: 'https://source.unsplash.com/600x600/?tv,family'
+      },
+      {
+        name: 'CineMax 65',
+        brand: 'PulseScreen',
+        category: 'television',
+        price: '₹74,999',
+        offer: '10% off',
+        specs: ['65" OLED', '4K', 'Dolby Atmos'],
+        image: 'https://source.unsplash.com/600x600/?tv,cinema'
+      },
+      {
+        name: 'WashMate 7kg',
+        brand: 'CleanPro',
+        category: 'washing machine',
+        price: '₹17,999',
+        offer: 'Free installation',
+        specs: ['7kg', 'Front load', '5 washing modes'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,front-load'
+      },
+      {
+        name: 'TopSpin 8kg',
+        brand: 'SpinTech',
+        category: 'washing machine',
+        price: '₹18,499',
+        offer: '10% off',
+        specs: ['8kg', 'Top load', 'Quick wash'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,top-load'
+      },
+      {
+        name: 'TurboWash 9kg',
+        brand: 'WashMaster',
+        category: 'washing machine',
+        price: '₹21,999',
+        offer: 'Free detergent',
+        specs: ['9kg', 'Front load', 'Steam wash'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,steam'
+      },
+      {
+        name: 'EcoSpin 7kg',
+        brand: 'EcoHome',
+        category: 'washing machine',
+        price: '₹16,999',
+        offer: 'Free shipping',
+        specs: ['7kg', 'Front load', 'Energy saver'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,eco'
+      },
+      {
+        name: 'QuickWash 6kg',
+        brand: 'RapidClean',
+        category: 'washing machine',
+        price: '₹15,499',
+        offer: 'Free installation',
+        specs: ['6kg', 'Top load', 'Quick cycle'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,compact'
+      },
+      {
+        name: 'FreshFlow 8kg',
+        brand: 'PureWash',
+        category: 'washing machine',
+        price: '₹19,299',
+        offer: 'Free softener',
+        specs: ['8kg', 'Front load', 'Wash+Dry mode'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,modern'
+      },
+      {
+        name: 'ComfortWash 9kg',
+        brand: 'HomeEase',
+        category: 'washing machine',
+        price: '₹22,499',
+        offer: 'Free dryer rack',
+        specs: ['9kg', 'Top load', 'Air dry'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,laundry'
+      },
+      {
+        name: 'SmartWash 8kg',
+        brand: 'SmartHome',
+        category: 'washing machine',
+        price: '₹20,999',
+        offer: '10% off',
+        specs: ['8kg', 'Front load', 'App control'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,smart'
+      },
+      {
+        name: 'DeluxeWash 10kg',
+        brand: 'UltraClean',
+        category: 'washing machine',
+        price: '₹24,999',
+        offer: 'Free lint filter',
+        specs: ['10kg', 'Front load', 'Dual spray'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,deluxe'
+      },
+      {
+        name: 'MiniWash 5kg',
+        brand: 'Compacto',
+        category: 'washing machine',
+        price: '₹12,999',
+        offer: 'Free delivery',
+        specs: ['5kg', 'Top load', 'Compact size'],
+        image: 'https://source.unsplash.com/600x600/?washing-machine,mini'
+      },
+      {
+        name: 'Rebound Jeans',
+        brand: 'DenimWorks',
+        category: 'jeans',
+        price: '₹1,499',
+        offer: '20% off',
+        specs: ['Slim fit', 'Stretch denim', 'Dark wash'],
+        image: 'https://source.unsplash.com/600x600/?jeans,denim'
+      },
+      {
+        name: 'Classic Blue Jeans',
+        brand: 'TrueBlue',
+        category: 'jeans',
+        price: '₹1,299',
+        offer: 'Free belt',
+        specs: ['Regular fit', 'Stone wash', '5-pocket'],
+        image: 'https://source.unsplash.com/600x600/?jeans,classic'
+      },
+      {
+        name: 'Street Rider Jeans',
+        brand: 'UrbanMove',
+        category: 'jeans',
+        price: '₹1,799',
+        offer: '10% off',
+        specs: ['Tapered fit', 'Ripped style', 'Stretch denim'],
+        image: 'https://source.unsplash.com/600x600/?jeans,street'
+      },
+      {
+        name: 'Vintage Denim',
+        brand: 'RetroWear',
+        category: 'jeans',
+        price: '₹1,649',
+        offer: 'Free shipping',
+        specs: ['High waist', 'Straight leg', 'Classic wash'],
+        image: 'https://source.unsplash.com/600x600/?jeans,vintage'
+      },
+      {
+        name: 'Active Stretch Jeans',
+        brand: 'Motion',
+        category: 'jeans',
+        price: '₹1,549',
+        offer: 'Free return',
+        specs: ['Stretch denim', 'Athletic fit', 'Moisture wicking'],
+        image: 'https://source.unsplash.com/600x600/?jeans,active'
+      },
+      {
+        name: 'Black Slim Jeans',
+        brand: 'NightMode',
+        category: 'jeans',
+        price: '₹1,399',
+        offer: '25% off',
+        specs: ['Slim fit', 'Black denim', 'Men’s style'],
+        image: 'https://source.unsplash.com/600x600/?jeans,black'
+      },
+      {
+        name: 'Relaxed Fit Jeans',
+        brand: 'EasyFit',
+        category: 'jeans',
+        price: '₹1,299',
+        offer: 'Free belt',
+        specs: ['Relaxed fit', 'Light wash', 'Comfort stretch'],
+        image: 'https://source.unsplash.com/600x600/?jeans,relaxed'
+      },
+      {
+        name: 'Classic Straight Jeans',
+        brand: 'DenimCraft',
+        category: 'jeans',
+        price: '₹1,249',
+        offer: 'Free gift wrap',
+        specs: ['Straight leg', 'Medium wash', 'Durable'],
+        image: 'https://source.unsplash.com/600x600/?jeans,straight'
+      },
+      {
+        name: 'Black Cargo Jeans',
+        brand: 'CargoPro',
+        category: 'jeans',
+        price: '₹1,899',
+        offer: 'Free shipping',
+        specs: ['Cargo pockets', 'Relaxed fit', 'Utility style'],
+        image: 'https://source.unsplash.com/600x600/?jeans,cargo'
+      },
+      {
+        name: 'Summer Chino Jeans',
+        brand: 'Breeze',
+        category: 'jeans',
+        price: '₹1,199',
+        offer: '10% off',
+        specs: ['Lightweight', 'Stretch', 'Casual wear'],
+        image: 'https://source.unsplash.com/600x600/?jeans,summer'
+      },
+      {
+        name: 'Denim Jacket',
+        brand: 'RawEdge',
+        category: 'jackets',
+        price: '₹2,499',
+        offer: 'Free cap',
+        specs: ['Classic denim', 'Button front', 'Adjustable waist'],
+        image: 'https://source.unsplash.com/600x600/?jacket,denim'
+      },
+      {
+        name: 'Leather Moto Jacket',
+        brand: 'RideWear',
+        category: 'jackets',
+        price: '₹4,999',
+        offer: '15% off',
+        specs: ['Genuine leather', 'Zipper detail', 'Slim fit'],
+        image: 'https://source.unsplash.com/600x600/?jacket,leather'
+      },
+      {
+        name: 'Puffer Jacket',
+        brand: 'WarmCore',
+        category: 'jackets',
+        price: '₹3,299',
+        offer: 'Free gloves',
+        specs: ['Insulated', 'Water resistant', 'Hooded'],
+        image: 'https://source.unsplash.com/600x600/?jacket,puffer'
+      },
+      {
+        name: 'Bomber Jacket',
+        brand: 'AeroStyle',
+        category: 'jackets',
+        price: '₹3,199',
+        offer: 'Free shipping',
+        specs: ['Ribbed cuffs', 'Zipper front', 'Lightweight'],
+        image: 'https://source.unsplash.com/600x600/?jacket,bomber'
+      },
+      {
+        name: 'Trench Coat',
+        brand: 'UrbanRain',
+        category: 'jackets',
+        price: '₹5,299',
+        offer: '10% off',
+        specs: ['Water resistant', 'Belted waist', 'Long length'],
+        image: 'https://source.unsplash.com/600x600/?coat,trench'
+      },
+      {
+        name: 'Faux Fur Jacket',
+        brand: 'GlamCoat',
+        category: 'jackets',
+        price: '₹3,899',
+        offer: '20% off',
+        specs: ['Faux fur', 'Zip front', 'Soft lining'],
+        image: 'https://source.unsplash.com/600x600/?jacket,faux-fur'
+      },
+      {
+        name: 'Windbreaker',
+        brand: 'BreezeTech',
+        category: 'jackets',
+        price: '₹2,199',
+        offer: 'Free cap',
+        specs: ['Windproof', 'Lightweight', 'Pocketed'],
+        image: 'https://source.unsplash.com/600x600/?windbreaker'
+      },
+      {
+        name: 'Hooded Jacket',
+        brand: 'CozyFit',
+        category: 'jackets',
+        price: '₹2,799',
+        offer: 'Free shipping',
+        specs: ['Hooded', 'Fleece lined', 'Front pockets'],
+        image: 'https://source.unsplash.com/600x600/?jacket,hooded'
+      },
+      {
+        name: 'Quilted Jacket',
+        brand: 'WarmLine',
+        category: 'jackets',
+        price: '₹3,499',
+        offer: 'Free scarf',
+        specs: ['Quilted', 'Insulated', 'Comfort fit'],
+        image: 'https://source.unsplash.com/600x600/?jacket,quilted'
+      },
+      {
+        name: 'Denim Jacket II',
+        brand: 'DenimCraft',
+        category: 'jackets',
+        price: '₹2,599',
+        offer: '10% off',
+        specs: ['Button front', 'Chest pockets', 'Classic style'],
+        image: 'https://source.unsplash.com/600x600/?jacket,denim'
+      },
+      {
+        name: 'Leather Blazer',
+        brand: 'Prestige',
+        category: 'jackets',
+        price: '₹4,199',
+        offer: 'Free belt',
+        specs: ['Soft leather', 'Tailored fit', 'Satin lining'],
+        image: 'https://source.unsplash.com/600x600/?blazer,leather'
+      }
+    ];
+
+    // normalizeProducts function removed - using direct Unsplash URLs
+
+    const resultsGrid = document.getElementById('resultsGrid');
+    const searchResultsSection = document.getElementById('searchResults');
+    const resultMessage = document.querySelector('.result-message');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const categoryButtons = document.querySelectorAll('.category-buttons button');
+
+    function renderProducts(items) {
+      resultsGrid.innerHTML = items.map(product => `
+        <div class="product">
+          <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x300?text=Product+Image'">
+          <div class="product-info">
+            <h3 class="product-title">${product.name}</h3>
+            <p class="product-brand">${product.brand}</p>
+            <p class="product-price">${product.price}</p>
+            <p class="product-offer">${product.offer}</p>
+            <ul class="product-specs">
+              ${product.specs.map(spec => `<li>${spec}</li>`).join('')}
+            </ul>
+            <button onclick="handleProductSelection({name: '${product.name}', brand: '${product.brand}', price: '${product.price}', image: '${product.image}'})">Add to Cart</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function searchProducts() {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        searchResultsSection.hidden = true;
+        return;
+      }
+
+      const queryTerms = query
+        .split(/[^a-z0-9]+/g)
+        .filter(term => term && !['and', 'or', 'the', 'with', 'of', 'for'].includes(term));
+
+      const matchedProducts = products.filter(product => {
+        const text = `${product.name} ${product.brand} ${product.category} ${product.specs.join(' ')} ${product.offer}`.toLowerCase();
+        return queryTerms.some(term => text.includes(term));
+      });
+
+      searchResultsSection.hidden = false;
+      if (matchedProducts.length) {
+        resultMessage.textContent = `Showing ${matchedProducts.length} result${matchedProducts.length === 1 ? '' : 's'} for "${searchInput.value}".`;
+        renderProducts(matchedProducts);
+      } else {
+        resultMessage.textContent = `No products found for "${searchInput.value}".`;
+        resultsGrid.innerHTML = '';
+      }
+    }
+
+    searchButton.addEventListener('click', searchProducts);
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        searchInput.value = button.dataset.category;
+        searchProducts();
+      });
+    });
+
+    const cameraButton = document.getElementById('cameraButton');
+    const voiceButton = document.getElementById('voiceButton');
+    const scannerButton = document.getElementById('scannerButton');
+
+    cameraButton.addEventListener('click', () => {
+      const query = prompt('Use camera search: enter a product name or category.');
+      if (query) {
+        searchInput.value = query;
+        searchProducts();
+      }
+    });
+
+    voiceButton.addEventListener('click', () => {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert('Voice search is not supported in this browser.');
+        return;
+      }
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      recognition.start();
+      recognition.onresult = event => {
+        const spokenQuery = event.results[0][0].transcript;
+        searchInput.value = spokenQuery;
+        searchProducts();
+      };
+      recognition.onerror = () => {
+        alert('Voice search failed. Please try again.');
+      };
+    });
+
+    if (scannerButton) {
+      scannerButton.addEventListener('click', () => {
+        const scanned = prompt('Scan product barcode or name:');
+        if (scanned) {
+          searchInput.value = scanned;
+          searchProducts();
+        }
+      });
+    }
+
+
+    searchInput.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        searchProducts();
+      }
+    });
+
+    // Header search functionality
+    const headerSearchInput = document.getElementById('headerSearchInput');
+    const headerSearchButton = document.getElementById('headerSearchButton');
+
+    function performHeaderSearch() {
+      const query = headerSearchInput.value.trim();
+      if (query) {
+        searchInput.value = query;
+        searchProducts();
+        // Scroll to search results
+        searchResultsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    headerSearchButton.addEventListener('click', performHeaderSearch);
+    headerSearchInput.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        performHeaderSearch();
+      }
+    });
+  </script>
+  <script>
+    function getCart() {
+      const stored = localStorage.getItem('eshopCart');
+      return stored ? JSON.parse(stored) : [];
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem('eshopCart', JSON.stringify(cart));
+    }
+
+    function addToCart(product) {
+      const cart = getCart();
+      const existing = cart.find(item => item.name === product.name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          name: product.name,
+          price: parsePrice(product.price),
+          quantity: 1,
+          image: product.image
+        });
+      }
+      saveCart(cart);
+      updateCartCount();
+      alert(`✅ Added "${product.name}" to your bag`);
+    }
+
+    function parsePrice(text) {
+      const cleanText = text.replace(/[^0-9.]/g, '');
+      const price = parseFloat(cleanText);
+      return Number.isNaN(price) ? 0 : price;
+    }
+
+    function formatCurrency(value) {
+      return '₹' + value.toFixed(2);
+    }
+
+    function updateCartCount() {
+      const cart = getCart();
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      const badge = document.getElementById('cartCount');
+      if (badge) {
+        badge.textContent = count;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
+</body>
+</html>
+
+

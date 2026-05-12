@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - E-SHOP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">E-SHOP</div>
+    <nav>
+      <a href="products.html">Shop</a>
+      <a href="checkout.html">Bag</a>
+      <a href="payment.html">Payment</a>
+    </nav>
+  </header>
+
+  <main class="checkout-page">
+    <section class="checkout-summary receipt-section" id="thankYouSection">
+      <h2>Thank You!</h2>
+      <p id="thankYouMessage" class="form-note">We appreciate your order.</p>
+      <div id="receiptSummary"></div>
+      <div id="receiptList"></div>
+      <div class="summary-row total" id="receiptTotal"></div>
+      <div class="cart-actions-group">
+        <a class="hero-button" id="continueShop" href="products.html">Continue Shopping</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function getReceipt() {
+      const stored = localStorage.getItem('eshopReceipt');
+      return stored ? JSON.parse(stored) : null;
+    }
+
+    function renderThankYou() {
+      const receipt = getReceipt();
+      const summary = document.getElementById('receiptSummary');
+      const list = document.getElementById('receiptList');
+      const totalRow = document.getElementById('receiptTotal');
+      const message = document.getElementById('thankYouMessage');
+
+      if (!receipt) {
+        message.textContent = 'No order was found. Please complete checkout first.';
+        summary.innerHTML = '<p class="empty-cart">Return to the shop to place your order.</p>';
+        list.innerHTML = '';
+        totalRow.innerHTML = '';
+        return;
+      }
+
+      message.textContent = 'Your order is placed successfully. Thank you for shopping with E-SHOP!';
+      summary.innerHTML = `
+        <p><strong>Name:</strong> ${receipt.order.name}</p>
+        <p><strong>Contact:</strong> ${receipt.order.phone}</p>
+        <p><strong>Email:</strong> ${receipt.order.email}</p>
+        <p><strong>Address:</strong> ${receipt.order.address}</p>
+        <p><strong>Pincode:</strong> ${receipt.order.pincode}</p>
+        <p><strong>Payment:</strong> ${receipt.method === 'cod' ? 'Cash on Delivery' : receipt.method === 'upi' ? 'UPI' : 'Card'}</p>
+        <p><strong>Order placed:</strong> ${receipt.placedAt}</p>
+      `;
+
+      list.innerHTML = '<h3>Bill Details</h3>' + receipt.cart.map(item => `
+        <p>${item.name} x ${item.quantity} = ₹${(item.price * item.quantity).toFixed(2)}</p>
+      `).join('');
+      totalRow.innerHTML = `<span>Grand Total</span><span>₹${receipt.order.total.toFixed(2)}</span>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderThankYou);
+  </script>
+</body>
+</html>

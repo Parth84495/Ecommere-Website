@@ -1987,7 +1987,7 @@ const products2 = [
     voiceButton.addEventListener('click', () => {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        alert('Voice search is not supported in this browser.');
+        showNotification('Voice search is not supported in this browser.');
         return;
       }
       const recognition = new SpeechRecognition();
@@ -2001,7 +2001,7 @@ const products2 = [
         searchProducts();
       };
       recognition.onerror = () => {
-        alert('Voice search failed. Please try again.');
+        showNotification('Voice search failed. Please try again.');
       };
     });
 
@@ -2068,7 +2068,7 @@ const products2 = [
       }
       saveCart(cart);
       updateCartCount();
-      alert(`✅ Added "${product.name}" to your bag`);
+      showNotification(`✅ Added "${product.name}" to your bag`);
     }
 
     function parsePrice(text) {

@@ -109,7 +109,7 @@ function highlightAllProducts() {
 
 function logoutUser() {
     localStorage.removeItem('eshopLoggedIn');
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
 }
 
 function updateHeaderAuthState() {

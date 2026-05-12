@@ -63,8 +63,7 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:url('banner.png') 
-no-repeat center center/cover;
+background: url('banner.png') no-repeat center center/cover;
 }
 
 /* 3D Container */
@@ -137,6 +136,100 @@ transition:0.3s;
 
 button:hover{
 transform:scale(1.05);
+}
+
+/* Third Party Login */
+
+.third-party-login {
+  margin: 20px 0;
+}
+
+.divider {
+  text-align: center;
+  margin: 15px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.divider span {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.social-btn:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.social-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:hover {
+  border-color: #4285f4;
+  background: rgba(66, 133, 244, 0.1);
+}
+
+.facebook-btn:hover {
+  border-color: #1877f2;
+  background: rgba(24, 119, 242, 0.1);
+}
+
+/* Notification */
+
+.notification-banner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #FF9900;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 300px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Forgot Password */
@@ -215,6 +308,20 @@ E-SHOP
 
 <button type="submit" id="submitButton">Login</button>
 
+<div class="third-party-login">
+  <div class="divider">
+    <span>or</span>
+  </div>
+  <button type="button" class="social-btn google-btn" onclick="handleThirdPartyLogin('google')">
+    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
+    Continue with Google
+  </button>
+  <button type="button" class="social-btn facebook-btn" onclick="handleThirdPartyLogin('facebook')">
+    <img src="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico" alt="Facebook">
+    Continue with Facebook
+  </button>
+</div>
+
 <div class="forgot" id="forgotSection">
 <a href="#">Forgot Password?</a>
 </div>
@@ -225,6 +332,8 @@ E-SHOP
 
 </div>
 </div>
+
+  <div id="notification" class="notification-banner" hidden></div>
 
 <script>
 function getUserData() {
@@ -242,6 +351,13 @@ function redirectIfLoggedIn() {
   }
 }
 
+function showNotification(text) {
+  const notification = document.getElementById('notification');
+  notification.textContent = text;
+  notification.hidden = false;
+  setTimeout(() => notification.hidden = true, 3000);
+}
+
 function showForm(mode) {
   const title = document.getElementById('formTitle');
   const form = document.getElementById('authForm');
@@ -249,18 +365,21 @@ function showForm(mode) {
   const forgotSection = document.getElementById('forgotSection');
   const switchMessage = document.getElementById('switchMessage');
   const registerFields = document.querySelectorAll('.register-only');
+  const thirdPartySection = document.querySelector('.third-party-login');
 
   form.dataset.mode = mode;
   if (mode === 'register') {
     title.textContent = 'Register';
     submitButton.textContent = 'Register';
     forgotSection.style.display = 'none';
+    thirdPartySection.style.display = 'none';
     switchMessage.innerHTML = 'Already have an account? <a href="#" id="switchToLogin">Login here</a>.';
     registerFields.forEach(field => field.style.display = 'block');
   } else {
     title.textContent = 'Login';
     submitButton.textContent = 'Login';
     forgotSection.style.display = 'block';
+    thirdPartySection.style.display = 'block';
     switchMessage.innerHTML = 'New user? <a href="#" id="switchToRegister">Create an account</a>.';
     registerFields.forEach(field => field.style.display = 'none');
   }
@@ -293,13 +412,13 @@ function handleFormSubmit(event) {
   const dob = document.getElementById('dob').value;
 
   if (!email || !password) {
-    alert('Please enter both email and password.');
+    showNotification('Please enter both email and password.');
     return;
   }
 
   if (mode === 'register') {
     if (!name || !phone || !dob) {
-      alert('Please enter your name, phone number, and date of birth.');
+      showNotification('Please enter your name, phone number, and date of birth.');
       return;
     }
 
@@ -312,16 +431,33 @@ function handleFormSubmit(event) {
 
   const existingUser = getUserData();
   if (!existingUser) {
-    alert('No account found. Please register first.');
+    showNotification('No account found. Please register first.');
     showForm('register');
     return;
   }
 
   if (existingUser.email !== email) {
-    alert('Invalid email.');
+    showNotification('Invalid email.');
     return;
   }
 
+  localStorage.setItem('eshopLoggedIn', 'true');
+  window.location.href = 'products.html';
+}
+
+function handleThirdPartyLogin(provider) {
+  // Simulate third-party login (in a real app, this would integrate with OAuth)
+  showNotification(`Logging in with ${provider.charAt(0).toUpperCase() + provider.slice(1)}...`);
+  
+  // Simulate successful login
+  const fakeUser = {
+    name: `${provider} User`,
+    email: `user@${provider}.com`,
+    phone: '1234567890',
+    dob: '1990-01-01'
+  };
+  
+  localStorage.setItem('eshopUser', JSON.stringify(fakeUser));
   localStorage.setItem('eshopLoggedIn', 'true');
   window.location.href = 'products.html';
 }

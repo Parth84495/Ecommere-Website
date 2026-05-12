@@ -632,6 +632,47 @@ nav a:hover {
     color: #666;
 }
 
+/* ========== FEATURED PRODUCTS SECTION ========== */
+.featured-products {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+}
+
+.featured-products h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: #131921;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    padding: 10px 0;
+    background: #FF9900;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    margin-top: auto;
+}
+
+.add-to-cart-btn:hover {
+    background: #FF7A00;
+    transform: scale(1.02);
+}
+
 /* ========== SEARCH RESULTS ========== */
 .search-results {
     max-width: 1400px;

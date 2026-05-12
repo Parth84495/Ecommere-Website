@@ -246,7 +246,7 @@
       event.preventDefault();
       const cart = getCart();
       if (!cart.length) {
-        alert('Your bag is empty. Add items before proceeding.');
+        showNotification('Your bag is empty. Add items before proceeding.');
         return;
       }
 
@@ -257,22 +257,22 @@
       const email = document.getElementById('email').value.trim();
 
       if (!name || !phone || !address || !pincode || !email) {
-        alert('Please complete all fields before proceeding.');
+        showNotification('Please complete all fields before proceeding.');
         return;
       }
 
       if (!/^[0-9]{10}$/.test(phone)) {
-        alert('Enter a valid 10-digit contact number.');
+        showNotification('Enter a valid 10-digit contact number.');
         return;
       }
 
       if (!/^[0-9]{5,6}$/.test(pincode)) {
-        alert('Enter a valid pincode.');
+        showNotification('Enter a valid pincode.');
         return;
       }
 
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        alert('Enter a valid email address.');
+        showNotification('Enter a valid email address.');
         return;
       }
 

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bag - E-SHOP</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-top">
+      <div class="logo"><a href="products.html"><img src="img/logo.jpeg" alt="E-SHOP logo"><span>E-SHOP</span></a></div>
+      <div class="search-bar-header">
+        <input type="text" placeholder="Search products, brands, offers...">
+        <button>🔍︎</button>
+      </div>
+      <nav>
+        <a href="products.html">👤 Account</a>
+        <a href="checkout.html">🛒 Bag <span id="cartCount">0</span></a>
+        <a href="payment.html">💳 Offers</a>
+      </nav>
+    </div>
+    <div class="header-bottom">
+      <button class="category-toggle">☰ All Categories</button>
+      <div class="quick-categories">
+        <a href="products.html">Electronics</a>
+        <a href="products.html">Fashion</a>
+        <a href="products.html">Home & Kitchen</a>
+        <a href="products.html">Sports</a>
+        <a href="products.html">Books</a>
+        <a href="products.html">Toys</a>
+      </div>
+      <span class="delivery-info">🚚 Free Delivery on orders over ₹500</span>
+    </div>
+  </header>
+
+  <main class="checkout-page">
+    <!-- Progress Indicator -->
+    <div class="progress-bar">
+      <div class="progress-step active">
+        <div class="step-number">1</div>
+        <div class="step-label">Bag</div>
+      </div>
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <div class="step-number">2</div>
+        <div class="step-label">Shipping</div>
+      </div>
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <div class="step-number">3</div>
+        <div class="step-label">Payment</div>
+      </div>
+    </div>
+
+    <div class="checkout-container">
+      <!-- Cart Items Section -->
+      <section class="cart-items-section">
+        <div class="section-title">
+          <h2>🛒 Your Shopping Bag</h2>
+          <span class="item-count" id="itemCount">0 items</span>
+        </div>
+
+        <div id="cartItems" class="cart-items-list"></div>
+
+        <div id="emptyMessage" class="empty-cart-message" hidden>
+          <div class="empty-icon">🛒</div>
+          <h3>Your bag is empty</h3>
+          <p>Add items to your bag and they will show up here.</p>
+          <a href="products.html" class="shop-now-btn">Start Shopping</a>
+        </div>
+      </section>
+
+      <!-- Sidebar: Price Summary & Details -->
+      <aside class="checkout-sidebar">
+        <!-- Price Summary -->
+        <div class="summary-card">
+          <h3>Price Details</h3>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="cartTotal">₹0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Delivery</span>
+            <span class="free-delivery">FREE</span>
+          </div>
+          <hr class="divider">
+          <div class="summary-row total-row">
+            <span>Total Amount</span>
+            <span id="totalPayable">₹0.00</span>
+          </div>
+          <button id="clearCart" class="clear-cart-button">Clear Bag</button>
+          <a href="products.html" class="continue-shopping-btn">Continue Shopping</a>
+        </div>
+
+        <!-- Shipping Details Form -->
+        <div class="form-card">
+          <h3>📦 Delivery Details</h3>
+          <p class="form-note">Complete your order information</p>
+          <form id="orderForm" class="checkout-form">
+            <div class="form-group">
+              <label for="customerName">Full Name</label>
+              <input id="customerName" name="customerName" type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactNumber">Contact Number</label>
+              <input id="contactNumber" name="contactNumber" type="tel" placeholder="10-digit mobile number" required>
+            </div>
+
+            <div class="form-group">
+              <label for="address">Delivery Address</label>
+              <textarea id="address" name="address" rows="3" placeholder="Street address, city, landmark" required></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pincode">Pincode</label>
+                <input id="pincode" name="pincode" type="text" placeholder="6-digit pincode" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" required>
+              </div>
+            </div>
+
+            <button type="submit" class="proceed-payment-btn">Proceed to Payment →</button>
+          </form>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="badge">
+            <span class="badge-icon">🔒</span>
+            <span class="badge-text">100% Secure</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">🚚</span>
+            <span class="badge-text">Fast Delivery</span>
+          </div>
+          <div class="badge">
+            <span class="badge-icon">↩️</span>
+            <span class="badge-text">Easy Returns</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 E-SHOP. Your online shopping destination.</p>
+  </footer>  <script>
+    // Cart functions are loaded from script.js
+    
+    function removeItem(itemName) {
+      const cart = getCart().filter((item) => item.name !== itemName);
+      saveCart(cart);
+      renderCart();
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      const cartItems = document.getElementById('cartItems');
+      const emptyMessage = document.getElementById('emptyMessage');
+      const cartTotal = document.getElementById('cartTotal');
+      const totalPayable = document.getElementById('totalPayable');
+      const itemCount = document.getElementById('itemCount');
+
+      cartItems.innerHTML = '';
+      
+      if (!cart.length) {
+        emptyMessage.hidden = false;
+        cartTotal.textContent = formatCurrency(0);
+        totalPayable.textContent = formatCurrency(0);
+        itemCount.textContent = '0 items';
+        return;
+      }
+
+      emptyMessage.hidden = true;
+      let total = 0;
+      let count = 0;
+
+      cart.forEach((item) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        count += item.quantity;
+
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item-card';
+        cartItem.innerHTML = `
+          <div class="cart-item-image">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="cart-item-details">
+            <h4 class="item-name">${item.name}</h4>
+            <p class="item-brand">${item.brand || 'E-SHOP'}</p>
+            <div class="item-pricing">
+              <span class="item-price">${formatCurrency(item.price)}</span>
+              <span class="item-qty">Qty: <strong>${item.quantity}</strong></span>
+            </div>
+            <p class="item-subtotal">Subtotal: <strong>${formatCurrency(itemTotal)}</strong></p>
+          </div>
+          <div class="cart-item-actions">
+            <button class="remove-btn" data-name="${item.name}" title="Remove from bag">✕</button>
+          </div>
+        `;
+
+        cartItems.appendChild(cartItem);
+      });
+
+      itemCount.textContent = `${count} item${count !== 1 ? 's' : ''}`;
+      cartTotal.textContent = formatCurrency(total);
+      totalPayable.textContent = formatCurrency(total);
+
+      document.querySelectorAll('.remove-btn').forEach((button) => {
+        button.addEventListener('click', function () {
+          removeItem(this.dataset.name);
+        });
+      });
+    }
+
+    function getOrderDetails() {
+      const stored = localStorage.getItem('eshopOrder');
+      return stored ? JSON.parse(stored) : null;
+    }
+
+    function saveOrderDetails(details) {
+      localStorage.setItem('eshopOrder', JSON.stringify(details));
+    }
+
+    function clearOrderDetails() {
+      localStorage.removeItem('eshopOrder');
+    }
+
+    document.getElementById('clearCart').addEventListener('click', function () {
+      if (confirm('Are you sure you want to clear your bag?')) {
+        saveCart([]);
+        clearOrderDetails();
+        renderCart();
+      }
+    });
+
+    document.getElementById('orderForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const cart = getCart();
+      if (!cart.length) {
+        showNotification('Your bag is empty. Add items before proceeding.');
+        return;
+      }
+
+      const name = document.getElementById('customerName').value.trim();
+      const phone = document.getElementById('contactNumber').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const pincode = document.getElementById('pincode').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      if (!name || !phone || !address || !pincode || !email) {
+        showNotification('Please complete all fields before proceeding.');
+        return;
+      }
+
+      if (!/^[0-9]{10}$/.test(phone)) {
+        showNotification('Enter a valid 10-digit contact number.');
+        return;
+      }
+
+      if (!/^[0-9]{5,6}$/.test(pincode)) {
+        showNotification('Enter a valid pincode.');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showNotification('Enter a valid email address.');
+        return;
+      }
+
+      const orderPayload = {
+        name,
+        phone,
+        address,
+        pincode,
+        email,
+        cart,
+        total: parseFloat(document.getElementById('totalPayable').textContent.replace(/[^0-9.]/g, ''))
+      };
+
+      try {
+        const savedOrder = await createOrderOnBackend(orderPayload);
+        saveOrderDetails({ ...orderPayload, orderId: savedOrder.orderId });
+      } catch (error) {
+        console.warn('Backend order failed, falling back to local storage:', error.message);
+        saveOrderDetails({ ...orderPayload });
+      }
+
+      window.location.href = 'payment.html';
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      renderCart();
+    });
+  </script>
+</body>
+</html>

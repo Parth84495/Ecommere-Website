@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Premium Earbuds",
+    "brand": "AudioPro",
+    "price": 1999,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Smart Watch",
+    "brand": "TechWear",
+    "price": 3249,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Designer Sunglasses",
+    "brand": "StyleEye",
+    "price": 1374,
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Wireless Charger",
+    "brand": "PowerUp",
+    "price": 799,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Premium Smart Watch Pro",
+    "brand": "Techrix",
+    "price": 129.99,
+    "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Wireless Headphones Max",
+    "brand": "AudioMax",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Running Shoes Performance",
+    "brand": "SportZone",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "name": "Radiant Glow Lipstick Pro",
+    "brand": "GlamZone",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=300&q=80"
+  }
+]
